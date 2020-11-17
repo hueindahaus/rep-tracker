@@ -4,14 +4,14 @@ import colors from "../constants/colors.js"
 import ClickableContainer from "../components/ClickableContainer.js"
 import MainHeader from "../components/MainHeader.js"
 
-function MainScreen(props){
+function MainScreen({ navigation, route }){
 
   return(
     <View style={styles.container}>
       <MainHeader />
-      <ClickableContainer style={styles.primaryButton} >
-        <Image style={styles.add} source={require("../assets/plus.png")}/>
-        <Text style={styles.buttonText} >Add lift</Text>
+      <ClickableContainer style={styles.primaryButton} onPress={() => navigation.navigate("SelectExerciseScreen")}>
+        <Text style={styles.buttonText}>Add exercise</Text>
+        <Image style={styles.add} source={require("../assets/chevrons-right.png")}/>
       </ClickableContainer>
     </View>  
   )
@@ -20,31 +20,32 @@ function MainScreen(props){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.base,
+    backgroundColor: colors.white,
     alignItems: 'center',
     
   },
   primaryButton: {
     minHeight: 60,
-    minWidth: 100,
-    
+    width: "36%",
+    flexDirection: "row",
     position: "absolute",
     bottom: 30,
-    right: "2%",
+    borderRadius: 30,
     alignItems: "center",
-    justifyContent: "center"
-    
+    backgroundColor: colors.dark,
   },
   buttonText: {
-    fontSize: 12,
+    fontSize: 14,
     textAlign: "center",
-    color: colors.text,
-    fontWeight: "100"
+    color: colors.white,
+    fontWeight: 'bold',
+    marginHorizontal: 0
   },
   add: {
     width: 24,
-    height: 24
-  }
+    height: 24,  
+  },
+  
 })
 
 export default MainScreen

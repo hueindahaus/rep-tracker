@@ -5,8 +5,11 @@ import colors from "../constants/colors"
 
 
 function ClickableContainer(props){
+
+
+
   return (
-    <TouchableOpacity style={{...props.style, ...styles.container}}>
+    <TouchableOpacity style={{...styles.container, ...props.style}} onPress={props.hasOwnProperty("onPress") ? () => props.onPress() : () => {}}>
       {props.children}
     </TouchableOpacity>
   )
@@ -16,10 +19,10 @@ function ClickableContainer(props){
 const styles = StyleSheet.create({
   container: {
 
-    backgroundColor: colors.front,
+    backgroundColor: colors.white2,
     justifyContent: "center",
     alignContent: "center",
-    borderRadius: 8,
+    borderRadius: 20,
   }
 })
 

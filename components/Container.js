@@ -16,7 +16,7 @@ function Container(props){
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.front,
+    backgroundColor: colors.white2,
     justifyContent: "center",
     alignContent: "center",
     borderRadius: 8,
