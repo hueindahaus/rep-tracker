@@ -3,6 +3,7 @@ import {View, Image, StyleSheet, Text} from "react-native"
 import colors from "../constants/colors.js"
 import ClickableContainer from "../components/ClickableContainer.js"
 import { SearchBar } from 'react-native-elements';
+import Category from "../components/Category"
 
 
 function SelectExerciseScreen({ navigation, route }){
@@ -32,7 +33,14 @@ function SelectExerciseScreen({ navigation, route }){
         ref={s => searchElement = s}
       />
       {search == "" ? 
-      <Text>Muscle Group</Text>: 
+      <View style={styles.categoryContainer}> 
+          <Category muscleGroup="Chest"/>
+          <Category muscleGroup="Legs"/>
+          <Category muscleGroup="Shoulders"/>
+          <Category muscleGroup="Triceps"/>
+          <Category muscleGroup="Bicep"/>
+          <Category muscleGroup="Abs"/>
+      </View>: 
       <Text>Exercise</Text>}
       
       
@@ -90,6 +98,11 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     color: colors.text
+  },
+  categoryContainer: {
+    marginTop: 30,
+    width: "84%",
+    alignItems: "center"
   }
   
 })
